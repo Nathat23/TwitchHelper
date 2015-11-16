@@ -37,7 +37,7 @@ public class GetData implements Runnable{
     }
 
     public void run() {
-
+        JSONObject streamObject = null;
         while ( running ) {
             try{
                 JSONParser parser = new JSONParser();
@@ -53,15 +53,20 @@ public class GetData implements Runnable{
                 TwitchHelper.status.setText("Title: " + jsonObject.get("status"));
                 String json2 = readUrl("https://api.twitch.tv/kraken/streams/" + TwitchHelper.name);
                 JSONObject jsonObject2 = (JSONObject) jsonParser.parse(json2);
-                JSONObject streamObject = (JSONObject) jsonObject2.get("stream");
-                TwitchHelper.currentviews.setText("Current Viewers: " + streamObject.get("viewers"));
-                double currentFPS = Math.round((Double)streamObject.get("average_fps"));
-                TwitchHelper.fps.setText("Current FPS: " + currentFPS);
+                streamObject = (JSONObject) jsonObject2.get("stream");
             }catch(Exception e){
                 new ErrorHandler(e.toString(), e.getStackTrace());
                 running = false;
             }
 
+            try{
+                TwitchHelper.currentviews.setText("Current Viewers: " + streamObject.get("viewers"));
+                double currentFPS = Math.round((Double)streamObject.get("average_fps"));
+                TwitchHelper.fps.setText("Current FPS: " + currentFPS);
+            }catch(NullPointerException e){
+                TwitchHelper.currentviews.setText("Current Viewers: 0");
+                TwitchHelper.fps.setText("Current FPS: 0");
+            }
 
             try{
                 Thread.sleep(5000);
