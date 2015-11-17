@@ -11,9 +11,6 @@ import java.io.InputStreamReader;
 import java.net.URL;
 import java.util.Date;
 
-/**
- * Created by Nathat on 14/11/2015.
- */
 public class GetData implements Runnable{
 
     boolean running = true;
