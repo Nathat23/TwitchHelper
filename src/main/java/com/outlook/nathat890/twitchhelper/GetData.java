@@ -1,7 +1,7 @@
 package com.outlook.nathat890.twitchhelper;
 
 
-import org.json.simple.JSONArray;
+import com.outlook.nathat890.twitchhelper.utils.ErrorHandler;
 import org.json.simple.JSONObject;
 import org.json.simple.parser.JSONParser;
 
@@ -48,7 +48,7 @@ public class GetData implements Runnable{
                 TwitchHelper.followers.setText("Followers: " + jsonObject.get("followers"));
                 TwitchHelper.timereset.setText("Updated: " + new Date().toString());
                 TwitchHelper.status.setText("Title: " + jsonObject.get("status"));
-                String json2 = readUrl("https://api.twitch.tv/kraken/streams/" + TwitchHelper.name);
+                String json2 = readUrl("https://api.twitch.tv/kraken/streams/" + TwitchHelper.name + ".json");
                 JSONObject jsonObject2 = (JSONObject) jsonParser.parse(json2);
                 streamObject = (JSONObject) jsonObject2.get("stream");
             }catch(Exception e){

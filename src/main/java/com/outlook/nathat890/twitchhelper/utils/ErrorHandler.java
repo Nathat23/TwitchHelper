@@ -1,7 +1,9 @@
-package com.outlook.nathat890.twitchhelper;
+package com.outlook.nathat890.twitchhelper.utils;
 
 import javax.swing.*;
 import java.awt.*;
+import java.io.*;
+import java.util.Date;
 
 /**
  * Created by Nathat on 15/11/2015.
@@ -22,8 +24,19 @@ public class ErrorHandler {
         JScrollPane pane = new JScrollPane(errordetails);
         details.setLayout(new BoxLayout(details, BoxLayout.Y_AXIS));
         errordetails.setText(error + ":");
-        for(StackTraceElement s : stack){
-            errordetails.setText(errordetails.getText() + System.lineSeparator() + s.toString());
+        try {
+            File file = new File(new Date().toString().replace(" ", "_") + ".txt");
+            if(!file.exists()){
+                file.createNewFile();
+            }
+            PrintWriter writer = new PrintWriter(file.getAbsolutePath(), "UTF-8");
+            for(StackTraceElement s : stack){
+                errordetails.setText(errordetails.getText() + System.lineSeparator() + s.toString());
+                writer.write(errordetails.getText());
+            }
+            writer.close();
+        }catch(Exception e){
+            errordetails.setText(e.toString());
         }
         details.add(title);
         details.add(description);
