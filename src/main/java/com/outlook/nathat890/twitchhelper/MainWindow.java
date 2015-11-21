@@ -27,7 +27,7 @@ public class MainWindow {
         main.setPreferredSize(new Dimension(700, 250));
         ImageIcon img = new ImageIcon("icon.jpg");
         main.setIconImage(img.getImage());
-        m.text.setMaximumSize(new Dimension(300, 27));
+        TwitchHelper.text.setMaximumSize(new Dimension(300, 27));
         main.setDefaultCloseOperation(WindowConstants.EXIT_ON_CLOSE);
         JPanel panelt = new JPanel();
         JPanel panela = new JPanel();
@@ -40,9 +40,9 @@ public class MainWindow {
         title.setForeground(Color.WHITE);
         panelt.add(title);
         title.setBorder(BorderFactory.createEmptyBorder(5, 5, 5, 5));
-        m.text.setBorder(BorderFactory.createEmptyBorder(5, 5, 5, 5));
+        TwitchHelper.text.setBorder(BorderFactory.createEmptyBorder(5, 5, 5, 5));
 
-        panelt.add(m.text);
+        panelt.add(TwitchHelper.text);
         panelt.add(check);
         panelt.add(about);
 
@@ -60,7 +60,7 @@ public class MainWindow {
         check.addActionListener(new ActionListener() {
             public void actionPerformed(ActionEvent event) {
                 TwitchHelper t = new TwitchHelper();
-                m.name = m.text.getText();
+                TwitchHelper.name = TwitchHelper.text.getText();
                 t.myThread.start();
             }
 
@@ -72,25 +72,25 @@ public class MainWindow {
 
         });
 
-        m.timereset.setForeground(Color.WHITE);
-        m.status.setForeground(Color.WHITE);
-        m.currentviews.setForeground(Color.WHITE);
-        m.fps.setForeground(Color.WHITE);
-        m.views.setForeground(Color.WHITE);
-        m.followers.setForeground(Color.WHITE);
-        m.game.setForeground(Color.WHITE);
-        m.mature.setForeground(Color.WHITE);
-        m.creation.setForeground(Color.WHITE);
+        TwitchHelper.timereset.setForeground(Color.WHITE);
+        TwitchHelper.status.setForeground(Color.WHITE);
+        TwitchHelper.currentviews.setForeground(Color.WHITE);
+        TwitchHelper.fps.setForeground(Color.WHITE);
+        TwitchHelper.views.setForeground(Color.WHITE);
+        TwitchHelper.followers.setForeground(Color.WHITE);
+        TwitchHelper.game.setForeground(Color.WHITE);
+        TwitchHelper.mature.setForeground(Color.WHITE);
+        TwitchHelper.creation.setForeground(Color.WHITE);
 
-        panela.add(m.timereset);
-        panela.add(m.status);
-        panela.add(m.currentviews);
-        panela.add(m.fps);
-        panela.add(m.views);
-        panela.add(m.followers);
-        panela.add(m.game);
-        panela.add(m.mature);
-        panela.add(m.creation);
+        panela.add(TwitchHelper.timereset);
+        panela.add(TwitchHelper.status);
+        panela.add(TwitchHelper.currentviews);
+        panela.add(TwitchHelper.fps);
+        panela.add(TwitchHelper.views);
+        panela.add(TwitchHelper.followers);
+        panela.add(TwitchHelper.game);
+        panela.add(TwitchHelper.mature);
+        panela.add(TwitchHelper.creation);
         main.pack();
         main.setLocationRelativeTo(null);
         main.setVisible(true);
