@@ -1,6 +1,7 @@
 package com.outlook.nathat890.twitchhelper;
 
 import com.outlook.nathat890.twitchhelper.utils.About;
+import com.outlook.nathat890.twitchhelper.utils.ChangeLog;
 
 import javax.swing.*;
 import java.awt.*;
@@ -25,8 +26,7 @@ public class MainWindow {
         JButton about = new JButton("About");
         main.setResizable(false);
         main.setPreferredSize(new Dimension(700, 250));
-        ImageIcon img = new ImageIcon("icon.jpg");
-        main.setIconImage(img.getImage());
+        main.setIconImage(m.getIcon());
         TwitchHelper.text.setMaximumSize(new Dimension(300, 27));
         main.setDefaultCloseOperation(WindowConstants.EXIT_ON_CLOSE);
         JPanel panelt = new JPanel();
@@ -94,5 +94,7 @@ public class MainWindow {
         main.pack();
         main.setLocationRelativeTo(null);
         main.setVisible(true);
+
+        new ChangeLog().createDialog();
     }
 }

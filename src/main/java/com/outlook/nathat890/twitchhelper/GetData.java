@@ -58,10 +58,13 @@ public class GetData implements Runnable{
 
             try{
                 TwitchHelper.currentviews.setText("Current Viewers: " + streamObject.get("viewers"));
+            }catch(NullPointerException e){
+                TwitchHelper.currentviews.setText("Current Viewers: 0");
+            }
+            try{
                 double currentFPS = Math.round((Double)streamObject.get("average_fps"));
                 TwitchHelper.fps.setText("Current FPS: " + currentFPS);
             }catch(NullPointerException e){
-                TwitchHelper.currentviews.setText("Current Viewers: 0");
                 TwitchHelper.fps.setText("Current FPS: 0");
             }
 

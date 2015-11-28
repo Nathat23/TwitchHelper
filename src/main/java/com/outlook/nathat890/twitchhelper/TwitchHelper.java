@@ -6,6 +6,7 @@ package com.outlook.nathat890.twitchhelper;
 import com.outlook.nathat890.twitchhelper.utils.ErrorHandler;
 
 import javax.swing.*;
+import java.awt.*;
 
 public class TwitchHelper{
 
@@ -38,6 +39,11 @@ public class TwitchHelper{
         }catch(Exception e){
             new ErrorHandler(e.toString(), e.getStackTrace());
         }
+    }
+
+    public Image getIcon(){
+        ImageIcon img = new ImageIcon("icon.jpg");
+        return img.getImage();
     }
 
 }
