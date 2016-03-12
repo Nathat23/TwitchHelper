@@ -51,6 +51,9 @@ public class GetData implements Runnable{
                 String json2 = readUrl("https://api.twitch.tv/kraken/streams/" + TwitchHelper.name + ".json");
                 JSONObject jsonObject2 = (JSONObject) jsonParser.parse(json2);
                 streamObject = (JSONObject) jsonObject2.get("stream");
+                String json3 = readUrl("http://tmi.twitch.tv/servers?channel=" + TwitchHelper.name);
+                JSONObject jsonObject3 = (JSONObject) jsonParser.parse(json3);
+                TwitchHelper.cluster.setText("Cluster: " + jsonObject3.get("cluster"));
             }catch(Exception e){
                 new ErrorHandler(e.toString(), e.getStackTrace());
                 running = false;
@@ -69,7 +72,7 @@ public class GetData implements Runnable{
             }
 
             try{
-                Thread.sleep(5000);
+                Thread.sleep(7000);
             }catch(InterruptedException e){
                 e.printStackTrace();
             }

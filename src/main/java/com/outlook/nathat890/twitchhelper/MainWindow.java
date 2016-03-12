@@ -24,12 +24,14 @@ public class MainWindow {
         JFrame main = new JFrame("TwitchHelper " + m.getVersion());
         JButton check = new JButton("View Stats");
         JButton about = new JButton("About");
-        main.setResizable(false);
-        main.setPreferredSize(new Dimension(700, 250));
+        main.setResizable(true);
+        main.setPreferredSize(new Dimension(710, 250));
         main.setIconImage(m.getIcon());
         TwitchHelper.text.setMaximumSize(new Dimension(300, 27));
         main.setDefaultCloseOperation(WindowConstants.EXIT_ON_CLOSE);
         JPanel panelt = new JPanel();
+        JPanel area1 = new JPanel();
+        JPanel area2 = new JPanel();
         JPanel panela = new JPanel();
         JPanel mainp = new JPanel(new BorderLayout());
         panelt.setLayout(new BoxLayout(panelt, BoxLayout.X_AXIS));
@@ -41,6 +43,7 @@ public class MainWindow {
         panelt.add(title);
         title.setBorder(BorderFactory.createEmptyBorder(5, 5, 5, 5));
         TwitchHelper.text.setBorder(BorderFactory.createEmptyBorder(5, 5, 5, 5));
+        TwitchHelper.interval.setBorder(BorderFactory.createEmptyBorder(5, 5, 5, 5));
 
         panelt.add(TwitchHelper.text);
         panelt.add(check);
@@ -81,6 +84,7 @@ public class MainWindow {
         TwitchHelper.game.setForeground(Color.WHITE);
         TwitchHelper.mature.setForeground(Color.WHITE);
         TwitchHelper.creation.setForeground(Color.WHITE);
+        TwitchHelper.cluster.setForeground(Color.WHITE);
 
         panela.add(TwitchHelper.timereset);
         panela.add(TwitchHelper.status);
@@ -91,6 +95,7 @@ public class MainWindow {
         panela.add(TwitchHelper.game);
         panela.add(TwitchHelper.mature);
         panela.add(TwitchHelper.creation);
+        panela.add(TwitchHelper.cluster);
         main.pack();
         main.setLocationRelativeTo(null);
         main.setVisible(true);

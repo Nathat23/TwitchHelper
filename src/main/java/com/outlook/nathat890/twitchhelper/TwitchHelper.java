@@ -21,8 +21,10 @@ public class TwitchHelper{
     public static JLabel status = new JLabel("Title: ");
     public static JLabel currentviews = new JLabel("Current Viewers: ");
     public static JTextField text = new JTextField(1);
+    public static JTextField interval = new JTextField(1);
     public static JLabel timereset = new JLabel("Updated: ");
     public static JLabel fps = new JLabel("Current FPS: ");
+    public static JLabel cluster = new JLabel("Cluster: ");
     public static String name = "";
     public String getVersion(){
         return version;
